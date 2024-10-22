@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Országgyűlési képviselők</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+        #message.wrong {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Országgyűlési képviselők</h1>
+    <p>Írd be egy képviselő nevét!</p>
+
+    <input type="text" id="guess" placeholder="Képviselő neve">
+    <button onclick="checkAnswer()">Tippelj!</button>
+
+    <p id="message"></p>
+
+    <script>
+        // Képviselők listája
+        const correctAnswers = [
+            'Orbán Viktor', 'Gyurcsány Ferenc', 'Ungár Péter'
+            // Ide jöhet az összes többi városnév
+        ];
+
+        // A válasz ellenőrzésének funkciója
+        function checkAnswer() {
+            const userGuess = document.getElementById('guess').value.trim();
+            const message = document.getElementById('message');
+
+            if (correctAnswers.includes(userGuess)) {
+                message.textContent = 'Gratulálok, a válasz helyes!';
+                message.classList.remove('wrong');
+            } else {
+                message.textContent = 'Sajnos ez nem jó válasz, próbáld újra!';
+                message.classList.add('wrong');
+            }
+        }
+    </script>
+
+</body>
+</html>
